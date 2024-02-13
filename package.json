@@ -21,6 +21,18 @@
         "command": "ruby-run-tests.run",
         "title": "Run test for active file"
       }
+    ],
+    "keybindings": [
+      {
+        "command": "ruby-run-tests.toggle",
+        "key": "alt+d",
+        "when": "editorLangId == 'ruby'"
+      },
+      {
+        "command": "ruby-run-tests.run",
+        "key": "alt+f",
+        "when": "editorLangId == 'ruby'"
+      }
     ]
   },
   "scripts": {
