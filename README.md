@@ -18,6 +18,4 @@ If you have any requirements or dependencies, add a section describing those and
 
 ## Release Notes
 
-### 0.0.1
-
-Initial release with basic functionality of commands with keybindings
+https://github.com/mtayllan/vscode-ruby-run-tests/releases
