@@ -1,13 +1,24 @@
 {
   "name": "ruby-run-tests",
-  "displayName": "ruby-run-tests",
-  "description": "Quickly run your ruby tests",
+  "displayName": "Ruby Run Tests",
+  "description": "Quick commands to run your ruby tests",
   "version": "0.0.1",
+  "publisher": "mtayllan",
+  "repository": "https://github.com/mtayllan/vscode-ruby-run-tests",
   "engines": {
     "vscode": "^1.86.0"
   },
   "categories": [
-    "Other"
+    "Programming Languages",
+    "Keymaps",
+    "Testing"
+  ],
+  "keywords": [
+    "ruby",
+    "test",
+    "rspec",
+    "minitest",
+    "rails"
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
