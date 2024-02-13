@@ -15,4 +15,4 @@ If you have any requirements or dependencies, add a section describing those and
 
 ### 0.0.1
 
-Initial release with basic functionallity of commands with keybindings
+Initial release with basic functionality of commands with keybindings
