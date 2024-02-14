@@ -50,7 +50,8 @@
     "vscode:prepublish": "npm run esbuild-base -- --minify",
     "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
     "package": "pnpm vsce package --no-dependencies",
-    "publish": "pnpm vsce publish --no-dependencies"
+    "publish": "pnpm vsce publish --no-dependencies",
+    "lint": "eslint src --ext ts"
   },
   "devDependencies": {
     "@types/node": "18.x",
