@@ -91,12 +91,50 @@ function runTest() {
   }
 }
 
+function runTestForLine() {
+  const editor = vscode.window.activeTextEditor;
+  if (!editor) { return; }
+
+  const currentFileUri = editor.document.uri;
+
+  const currentFilePath = currentFileUri.fsPath;
+  const currentFileDir = path.dirname(currentFilePath);
+
+  const rootFolder = vscode.workspace.getWorkspaceFolder(vscode.Uri.file(currentFileDir))?.uri.fsPath;
+  if (!rootFolder) { return; }
+
+  const testsFolder = getTestsFolder(rootFolder);
+  if (!testsFolder) { return; }
+
+  if (!currentFilePath.endsWith(`_${testsFolder}.rb`)) {return;}
+
+  let command = '';
+  if (testsFolder === 'spec') {
+    command = `bundle exec rspec ${currentFilePath}`;
+  } else {
+    command = `bundle exec rails t ${currentFilePath}`;
+  }
+
+  const lineNumber = editor.selection.active.line + 1;
+  command = `${command}:${lineNumber}`;
+
+  if (vscode.window.activeTerminal) {
+    vscode.window.activeTerminal.sendText(command);
+  } else {
+    const terminal = vscode.window.createTerminal();
+    terminal.show();
+    terminal.sendText(command);
+  }
+}
+
 export function activate(context: vscode.ExtensionContext) {
   const toggleCommand = vscode.commands.registerCommand('ruby-run-tests.toggle', toggle);
   const runTestCommand = vscode.commands.registerCommand('ruby-run-tests.run', runTest);
+  const runTestForLineCommand = vscode.commands.registerCommand('ruby-run-tests.runForLine', runTestForLine);
 
   context.subscriptions.push(toggleCommand);
   context.subscriptions.push(runTestCommand);
+  context.subscriptions.push(runTestForLineCommand);
 }
 
 export function deactivate() { }

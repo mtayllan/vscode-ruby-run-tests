@@ -10,11 +10,8 @@ Quick commands to run your ruby tests
 ## Keybindings
 
 - Toggle: `alt+d`
-- Run test: `alf+f`
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- Run test: `alt+f`
+- Run test for current line: `alt+v`
 
 ## Release Notes
 
