@@ -2,7 +2,7 @@
   "name": "ruby-run-tests",
   "displayName": "Ruby Run Tests",
   "description": "Quick commands to run your ruby tests",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publisher": "mtayllan",
   "repository": "https://github.com/mtayllan/vscode-ruby-run-tests",
   "engines": {
