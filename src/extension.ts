@@ -82,13 +82,7 @@ function runTest() {
     command = `bundle exec rails t ${fileToRun}`;
   }
 
-  if (vscode.window.activeTerminal) {
-    vscode.window.activeTerminal.sendText(command);
-  } else {
-    const terminal = vscode.window.createTerminal();
-    terminal.show();
-    terminal.sendText(command);
-  }
+  runOnTerminal(command);
 }
 
 function runTestForLine() {
@@ -118,7 +112,12 @@ function runTestForLine() {
   const lineNumber = editor.selection.active.line + 1;
   command = `${command}:${lineNumber}`;
 
+  runOnTerminal(command);
+}
+
+function runOnTerminal(command: string) {
   if (vscode.window.activeTerminal) {
+    vscode.window.activeTerminal.show();
     vscode.window.activeTerminal.sendText(command);
   } else {
     const terminal = vscode.window.createTerminal();
